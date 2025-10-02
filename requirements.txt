@@ -1,0 +1,3 @@
+# Se genera automáticamente con pip-compile. 
+# Comando:
+#   pip-compile --resolver=backtracking --upgrade --generate-hashes -o requirements.txt requirements.in
