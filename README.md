@@ -24,3 +24,10 @@ python -m app.main
 ## Scripts de desarrollo
 - Windows: `scripts/dev_run.bat`
 - Unix/Mac: `scripts/dev_run.sh`
+
+## Presets (JSON)
+Los presets se validan con pydantic (schema_version=1). Ejecuta:
+```
+python -m app.core.preset_manager
+```
+para generar dos presets de ejemplo en `app/assets/presets/` y probar la carga/validación.
