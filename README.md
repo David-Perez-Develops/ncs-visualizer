@@ -31,3 +31,13 @@ Los presets se validan con pydantic (schema_version=1). Ejecuta:
 python -m app.core.preset_manager
 ```
 para generar dos presets de ejemplo en `app/assets/presets/` y probar la carga/validación.
+
+## Audio IO
+- `load_audio(path)` carga WAV/MP3/OGG como float32 en el SR nativo y devuelve `(data[ch,n], sr, info)` usando librosa.
+- `normalize_sr(data, sr, target=44100, mono='mix')` reajusta el SR con librosa y maneja canales.
+- `peak_normalize(data, peak)` normaliza por pico.
+- `run_ffprobe(path)` + `parse_audio_info()` obtienen metadatos del audio.
+- `aac_passthrough_ok(info, target_sr, target_channels)` indica si es viable el **passthrough AAC** (MVP: requiere AAC y 44.1 kHz).
+
+Notas:
+- FFmpeg/ffprobe puede resolverse desde `app/ffmpeg/` o el PATH del sistema.
