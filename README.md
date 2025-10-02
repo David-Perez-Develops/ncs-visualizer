@@ -41,3 +41,16 @@ para generar dos presets de ejemplo en `app/assets/presets/` y probar la carga/v
 
 Notas:
 - FFmpeg/ffprobe puede resolverse desde `app/ffmpeg/` o el PATH del sistema.
+
+## Análisis DSP
+- `analyze_file(path, target_sr=44100, hop=512, n_fft=2048)` computa:
+  - **STFT** (magnitud), tiempos y frecuencias por bin.
+  - **Energía global** normalizada y **energía por bandas** (bajos 20–160 Hz, medios 160–2 kHz, agudos 2–16 kHz).
+  - **Onsets** y **beat/BPM** (librosa).
+- Resultado: `AnalysisResult` con arrays listos para mapear a parámetros visuales (Tarea 05).
+
+Ejemplo rápido:
+```
+python -m app.core.analysis ruta/a/tu/audio.mp3
+```
+Imprime BPM estimado y medias de energía por banda.
